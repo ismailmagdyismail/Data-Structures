@@ -8,7 +8,7 @@ type doublyLinkedList struct {
 	size int
 }
 
-func NewDoublyLinkedList() *doublyLinkedList {
+func NewDoublyLinkedList() LinkedList {
 	return &doublyLinkedList{
 		head: nil,
 		tail: nil,

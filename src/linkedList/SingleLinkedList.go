@@ -8,7 +8,7 @@ type singleLinkedList struct {
 	size int
 }
 
-func NewSinglyLinkedList() *singleLinkedList {
+func NewSinglyLinkedList() LinkedList {
 	return &singleLinkedList{
 		head: nil,
 		tail: nil,
