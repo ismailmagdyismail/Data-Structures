@@ -24,6 +24,8 @@ func testLinkedList(list linkedList.LinkedList) {
 func main() {
 
 	// Create a new doubly linked list
-	var list linkedList.LinkedList = linkedList.NewDoublyLinkedList()
-	testLinkedList(list)
+	var doubly linkedList.LinkedList = linkedList.NewDoublyLinkedList()
+	var singly linkedList.LinkedList = linkedList.NewSinglyLinkedList()
+	testLinkedList(doubly)
+	testLinkedList(singly)
 }

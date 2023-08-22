@@ -7,6 +7,6 @@ type doublyNode struct {
 }
 
 type singlyNode struct {
-	next *singlyNode
-	val  any
+	next  *singlyNode
+	value any
 }
