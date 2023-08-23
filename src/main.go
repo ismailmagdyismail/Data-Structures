@@ -46,5 +46,6 @@ func main() {
 	// Create a new doubly linked list
 	//testLinkedList(linkedList.NewDoublyLinkedList())
 	//testLinkedList(linkedList.NewSinglyLinkedList())
-	testStack(stack.NewStackDynamic())
+	//testStack(stack.NewStackDynamic())
+	testStack(stack.NewStackLinked())
 }

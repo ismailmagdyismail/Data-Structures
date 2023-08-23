@@ -1,7 +1,5 @@
 package stack
 
-import "fmt"
-
 type stackDynamic struct {
 	size  int
 	stack []any
@@ -36,5 +34,4 @@ func (stack *stackDynamic) Pop() {
 	}
 	stack.stack = stack.stack[:stack.size-1]
 	stack.size--
-	fmt.Println(stack)
 }
