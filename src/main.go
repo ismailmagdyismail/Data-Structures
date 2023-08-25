@@ -2,6 +2,7 @@ package main
 
 import (
 	"GO/src/linkedList"
+	"GO/src/priorityQueue"
 	"GO/src/queue"
 	"GO/src/stack"
 	"fmt"
@@ -80,6 +81,41 @@ func testQueue(queue queue.Queue) {
 		queue.Pop()
 	}()
 }
+func testPriorityQueue(pq priorityQueue.PriorityQueue) {
+	// Test normal use cases
+	pq.Push(5)
+	pq.Push(10)
+	pq.Push(3)
+	pq.Push(8)
+
+	fmt.Println("Top:", pq.Top())              // Should print 10
+	fmt.Println("Size:", pq.Size())            // Should print 4
+	fmt.Println("Elements:", pq.GetElements()) // Should print [10 8 3 5]
+
+	pq.Pop()
+	fmt.Println("Top:", pq.Top())              // Should print 8
+	fmt.Println("Size:", pq.Size())            // Should print 3
+	fmt.Println("Elements:", pq.GetElements()) // Should print [8 5 3]
+
+	// Test edge cases
+	emptyHeap := priorityQueue.NewPriorityQueue(func(first, second interface{}) bool {
+		return first.(int) > second.(int)
+	})
+
+	fmt.Println("Is Empty:", emptyHeap.IsEmpty()) // Should print true
+
+	// Attempting to get the top of an empty heap should panic
+	// Uncomment the next line to test the panic
+	// fmt.Println("Top:", emptyHeap.Top())
+	// Push elements and then pop until empty
+	emptyHeap.Push(1)
+	emptyHeap.Push(2)
+	emptyHeap.Push(3)
+	emptyHeap.Pop()
+	emptyHeap.Pop()
+	emptyHeap.Pop()
+	fmt.Println("Is Empty:", emptyHeap.IsEmpty()) // Should print true
+}
 func main() {
 
 	// Create a new doubly linked list
@@ -87,5 +123,8 @@ func main() {
 	//testLinkedList(linkedList.NewSinglyLinkedList())
 	//testStack(stack.NewStackDynamic())
 	//testStack(stack.NewStackLinked())
-	testQueue(queue.NewQueueDynamic())
+	//testQueue(queue.NewQueueDynamic())
+	testPriorityQueue(priorityQueue.NewPriorityQueue(func(first, second interface{}) bool {
+		return first.(int) > second.(int)
+	}))
 }
