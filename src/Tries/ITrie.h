@@ -8,6 +8,7 @@ public:
     virtual void deleteWord(std::string word) = 0 ;
     virtual bool containWord(std::string word) = 0 ;
     virtual bool containPrefix(std::string word) = 0;
+    virtual void print() = 0 ;
 };
 
 
