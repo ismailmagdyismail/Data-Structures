@@ -9,16 +9,19 @@
 #include "PrefixTrieNode.h"
 
 class PrefixTrie : public ITrie{
-private:
-    PrefixTrieNode* root;
 public:
     PrefixTrie();
     virtual void insertWord(std::string word);
     virtual void deleteWord(std::string word);
     virtual bool containWord(std::string word);
     virtual bool containPrefix(std::string word);
+    virtual void print();
     virtual ~PrefixTrie();
-
+private:
+    PrefixTrieNode* root;
+    void deleteNodes(PrefixTrieNode* node);
+    void deleteWord(PrefixTrieNode* node,std::string word,int index);
+    void printNodes(PrefixTrieNode* node);
 };
 
 

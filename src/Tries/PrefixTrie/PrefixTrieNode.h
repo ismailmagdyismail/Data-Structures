@@ -8,7 +8,7 @@
 
 struct PrefixTrieNode {
     std::unordered_map<char,PrefixTrieNode*>children;
-    bool isWord;
+    bool isWord = false;
 };
 
 

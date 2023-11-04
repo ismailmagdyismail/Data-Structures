@@ -48,19 +48,48 @@ bool PrefixTrie::containPrefix(std::string word){
     return true;
 }
 void PrefixTrie::deleteWord(std::string word) {
-
+    if(word.empty() || !containWord(word)){
+        return;
+    }
+    deleteWord(this->root,word,0);
 }
-void deleteNodes(PrefixTrieNode* node){
+void PrefixTrie::deleteWord(PrefixTrieNode *node, std::string word, int index) {
+    // todo fix memory leak bug
+    if(!node || index > word.size()){
+        return;
+    }
+    deleteWord(node->children[word[index]],word,index+1);
+    if(index == word.size() - 1){
+        node->isWord = false;
+    }
+    if(!node->isWord && node->children.empty()){
+        delete node;
+    }
+}
+void PrefixTrie::print() {
+    printNodes(this->root);
+}
+void PrefixTrie::printNodes(PrefixTrieNode *node) {
+    if(!node){
+        return;
+    }
+    vector<PrefixTrieNode*>children;
+    for(auto entry : node->children){
+        children.push_back(entry.second);
+    }
+    for(auto child :children){
+        printNodes(child);
+    }
+}
+PrefixTrie::~PrefixTrie() {
+    deleteNodes(this->root);
+}
+void PrefixTrie::deleteNodes(PrefixTrieNode* node){
     if(node == nullptr){
         return;
     }
     for(auto child : node->children){
-        cout<<"going to delete "<<child.first<<" and its children\n";
         deleteNodes(child.second);
     }
-    cout<<"delete\n";
     delete node;
-}
-PrefixTrie::~PrefixTrie() {
-    deleteNodes(this->root);
 }
