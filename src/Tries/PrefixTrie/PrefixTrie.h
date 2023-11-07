@@ -20,7 +20,7 @@ public:
 private:
     PrefixTrieNode* root;
     void deleteNodes(PrefixTrieNode* node);
-    void deleteWord(PrefixTrieNode* node,std::string word,int index);
+    bool deleteWord(PrefixTrieNode* node,std::string word,int index);
     void printNodes(PrefixTrieNode* node);
 };
 
