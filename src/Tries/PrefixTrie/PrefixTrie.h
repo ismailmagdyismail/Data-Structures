@@ -1,22 +1,18 @@
-//
-// Created by Ismail Magdy on 04/11/2023.
-//
+
 
 #ifndef TRIES_PREFIXTRIE_H
 #define TRIES_PREFIXTRIE_H
-
-#include "../ITrie.h"
 #include "PrefixTrieNode.h"
 
-class PrefixTrie : public ITrie{
+class PrefixTrie{
 public:
     PrefixTrie();
-    virtual void insertWord(std::string word);
-    virtual void deleteWord(std::string word);
-    virtual bool containWord(std::string word);
-    virtual bool containPrefix(std::string word);
-    virtual void print();
-    virtual ~PrefixTrie();
+    void insertWord(std::string word);
+    void deleteWord(std::string word);
+    bool containWord(std::string word);
+    bool containPrefix(std::string word);
+    void print();
+    ~PrefixTrie();
 private:
     PrefixTrieNode* root;
     void deleteNodes(PrefixTrieNode* node);
