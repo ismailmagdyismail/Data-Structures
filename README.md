@@ -7,3 +7,4 @@ implemntation of data-structures in GO and C++
 - Queue
 - Heap/Priority Queue 
 - Trie (prefix,suffix)
+- IntervalTree
